@@ -39,15 +39,40 @@ public class NumSnm {
      * @param arr
      */
     public static void changeArrayData(@NotNull int[] arr) {
-        int[] arr2 = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
         for (int i = 0; i < arr.length; i++) {
-            if (arr2[i] % 2 == 0) {
-                arr2[i] = arr2[i] * 2;
+            if (arr[i] % 2 == 0) {
+                arr[i] = arr[i] * 2;
             }
         }
-        System.out.println(Arrays.toString(arr2));
+        System.out.println(Arrays.toString(arr));
     }
 
+    /**
+     * 更改数组的顺序
+     * @param arr
+     */
+    public static void reverseArrayOrder(@NotNull int[] arr) {
+        for (int i = 0; i < arr.length / 2; i++) {
+            int temp = arr[i];
+            arr[i] = arr[arr.length - 1 - i];
+            arr[arr.length - 1 - i] = temp;
+        }
+        System.out.println(Arrays.toString(arr));
+    }
+
+    /**
+     *打乱顺序
+     * @param arr
+     */
+    public static void shuffleArray(@NotNull int[] arr) {
+        for (int i = arr.length - 1; i > 0; i--) {
+            int index = (int) (Math.random() * (i + 1));
+            int temp = arr[index];
+            arr[index] = arr[i];
+            arr[i] = temp;
+        }
+        System.out.println(Arrays.toString(arr));
+    }
     public static void main(String[] args) {
         // 创建类实例后调用非静态方法
         NumSnm numSnm = new NumSnm();
@@ -57,5 +82,7 @@ public class NumSnm {
         System.out.println(Arrays.toString(result));
         countElements(numSnm.arr);
         changeArrayData(numSnm.arr);
+        reverseArrayOrder(numSnm.arr);
+        shuffleArray(numSnm.arr);
     }
 }
