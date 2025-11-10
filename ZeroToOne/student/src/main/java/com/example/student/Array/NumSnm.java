@@ -73,6 +73,7 @@ public class NumSnm {
         }
         System.out.println(Arrays.toString(arr));
     }
+
     public static void main(String[] args) {
         // 创建类实例后调用非静态方法
         NumSnm numSnm = new NumSnm();
